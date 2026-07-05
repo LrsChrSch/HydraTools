@@ -22,14 +22,14 @@ await loadScript(
 await loadScript("https://metagrowing.org/extra-shaders-for-hydra/all.js");
 
 await loadScript(
-  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/common.js",
+  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/common.js?dev=1",
 );
 await loadScript(
-  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/audio.js",
+  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/audio.js?dev=1",
 );
 await loadScript(
-  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/shaders.js",
+  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/shaders.js?dev=1",
 );
 await loadScript(
-  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/colors.js",
+  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/colors.js?dev=1",
 );
