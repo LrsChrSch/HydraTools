@@ -1,4 +1,6 @@
 async function importAll() {
+  console.log("Loading all...");
+
   await loadScript(
     "https://cdn.jsdelivr.net/gh/geikha/hyper-hydra@latest/hydra-arithmetics.js",
   );
