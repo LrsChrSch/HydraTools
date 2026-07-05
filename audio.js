@@ -1,8 +1,6 @@
 var loudnessCeiling = 1; // seed nonzero to avoid divide-by-zero; adapts upward automatically
 var bufferSize = a.meyda._m.bufferSize;
 
-a.meyda.start();
-
 var aa = {
   loudness: 0,
   spectralCentroid: 0,
