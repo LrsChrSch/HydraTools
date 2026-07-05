@@ -1,13 +1,15 @@
-let loudnessCeiling = 1; // seed nonzero to avoid divide-by-zero; adapts upward automatically
-const bufferSize = a.meyda._m.bufferSize;
+var loudnessCeiling = 1; // seed nonzero to avoid divide-by-zero; adapts upward automatically
+var bufferSize = a.meyda._m.bufferSize;
 
-let aa = {
+a.meyda.start();
+
+var aa = {
   loudness: 0,
   spectralCentroid: 0,
   spectralKurtosis: 0,
 };
 
-const ranges = {
+var ranges = {
   spectralCentroid: {
     min: 0,
     max: bufferSize / 2,
