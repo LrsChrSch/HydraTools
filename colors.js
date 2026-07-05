@@ -1,4 +1,4 @@
-const palette = {
+var palette = {
   bnw: createGradient("#000", "#fff"),
   red: createGradient(
     "#000",
