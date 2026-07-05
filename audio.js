@@ -1,3 +1,6 @@
+let loudnessCeiling = 1; // seed nonzero to avoid divide-by-zero; adapts upward automatically
+const bufferSize = a.meyda._m.bufferSize;
+
 let aa = {
   loudness: 0,
   spectralCentroid: 0,
@@ -14,10 +17,6 @@ const ranges = {
     max: 1,
   },
 };
-
-const bufferSize = a.meyda._m.bufferSize;
-
-let loudnessCeiling = 1; // seed nonzero to avoid divide-by-zero; adapts upward automatically
 
 function normalizeAdaptive(value) {
   loudnessCeiling = Math.max(loudnessCeiling * 0.999, value); // slow decay lets ceiling drift back down between loud peaks
