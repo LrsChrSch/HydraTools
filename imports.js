@@ -38,4 +38,4 @@ async function importAll() {
   );
 }
 
-await importAll();
+var hydraToolsReady = importAll();
