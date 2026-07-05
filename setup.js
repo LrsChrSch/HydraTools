@@ -8,7 +8,7 @@ await loadScript("https://cdn.jsdelivr.net/gh/geikha/hyper-hydra@latest/hydra-te
 await loadScript("https://metagrowing.org/extra-shaders-for-hydra/all.js")
 
 await loadScript("https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/common.js")
-await loadScript("https://cdn.statically.io/gh/LrsChrSch/HydraTools@9e7428d3349c343efccd87868aafa3d334fdcdff/audio.js")
+await loadScript("https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/audio.js")
 await loadScript("https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/shaders.js")
 
 a.show()
