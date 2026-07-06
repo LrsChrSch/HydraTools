@@ -25,16 +25,19 @@ async function importAll() {
   await loadScript("https://metagrowing.org/extra-shaders-for-hydra/all.js");
 
   await loadScript(
-    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/common.js?dev=1",
+    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/common.js",
   );
   await loadScript(
-    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/audio.js?dev=1",
+    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/audio.js",
   );
   await loadScript(
-    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/shaders.js?dev=1",
+    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/shaders.js",
   );
   await loadScript(
-    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/colors.js?dev=1",
+    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/colors.js",
+  );
+  await loadScript(
+    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/midi.js",
   );
 }
 

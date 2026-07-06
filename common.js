@@ -13,3 +13,9 @@ function normalize(value, range) {
 function smooth(current, target, smooth = a.smooth) {
   return current + (target - current) * (1 - smooth);
 }
+
+// Run once, ideally at the top of your sketch
+const proto = Object.getPrototypeOf(osc());
+proto.scaleScreen = function (amount = 1) {
+  return this.scale(amount, innerHeight / innerWidth);
+};
