@@ -1,6 +1,7 @@
-// ============ MIDI LISTENER (channel-agnostic) ============
-const ccValues = new Array(128).fill(0); // raw 0-127 CC values
-const noteStates = new Array(128).fill(0); // 0 or 1, button pressed state
+// Midi helpers for AKAI MidiMix
+
+var ccValues = new Array(128).fill(0); // raw 0-127 CC values
+var noteStates = new Array(128).fill(0); // 0 or 1, button pressed state
 
 navigator.requestMIDIAccess().then(
   (midiAccess) => {
@@ -22,8 +23,7 @@ function handleMIDIMessage(msg) {
   }
 }
 
-// ============ CURVES ============
-const curves = {
+var curves = {
   lin: (t) => t,
   linear: (t) => t,
   exp: (t) => t * t,
@@ -38,10 +38,9 @@ function mapValue(raw, min = 0, max = 1, curve = "lin") {
   return lerp(curved, 0, 1, min, max);
 }
 
-// ============ ID MAPS ============
-const sliderIds = [19, 23, 27, 31, 49, 53, 57, 61, 62];
+var sliderIds = [19, 23, 27, 31, 49, 53, 57, 61, 62];
 
-const knobIds = [
+var knobIds = [
   [16, 17, 18],
   [20, 21, 22],
   [24, 25, 26],
@@ -52,7 +51,7 @@ const knobIds = [
   [58, 59, 60],
 ];
 
-const buttonIds = [
+var buttonIds = [
   [1, 3],
   [4, 6],
   [7, 9],
@@ -63,8 +62,6 @@ const buttonIds = [
   [22, 24],
   [25, 26, 27],
 ];
-
-// ============ HELPER FUNCTIONS ============
 
 // slider(1-9, min, max, curve)
 function slider(num, min = 0, max = 1, curve = "lin") {

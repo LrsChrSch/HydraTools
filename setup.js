@@ -3,6 +3,8 @@ await loadScript(
 );
 await hydraToolsReady;
 
+await midi.start().show();
+
 a.show();
 a.setBins(4);
 a.setSmooth(0.8);
