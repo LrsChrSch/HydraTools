@@ -23,6 +23,9 @@ async function importAll() {
     "https://cdn.jsdelivr.net/gh/geikha/hyper-hydra@latest/hydra-text.js",
   );
   await loadScript("https://metagrowing.org/extra-shaders-for-hydra/all.js");
+  await loadScript(
+    "https://cdn.jsdelivr.net/npm/hydra-midi@latest/dist/index.js",
+  );
 
   await loadScript(
     "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/common.js?dev=1",
