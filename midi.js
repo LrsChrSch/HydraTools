@@ -1,20 +1,27 @@
 // Midi helpers for AKAI MidiMix
 
-var ccValues = new Array(128).fill(0); // raw 0-127 CC values
-var noteStates = new Array(128).fill(0); // 0 or 1, button pressed state
+window.ccValues = window.ccValues || new Array(128).fill(0);
+window.noteStates = window.noteStates || new Array(128).fill(0);
 
-navigator.requestMIDIAccess().then(
-  (midiAccess) => {
-    for (const input of midiAccess.inputs.values()) {
-      input.onmidimessage = handleMIDIMessage;
-    }
-  },
-  () => console.log("Could not access MIDI devices."),
-);
+const ccValues = window.ccValues;
+const noteStates = window.noteStates;
+
+if (!window.__midiInitialized) {
+  navigator.requestMIDIAccess().then(
+    (midiAccess) => {
+      for (const input of midiAccess.inputs.values()) {
+        input.onmidimessage = handleMIDIMessage;
+      }
+    },
+    () => console.log("Could not access MIDI devices."),
+  );
+
+  window.__midiInitialized = true;
+}
 
 function handleMIDIMessage(msg) {
   const [status, id, value] = msg.data;
-  const type = status & 0xf0; // mask out channel -> channel-agnostic
+  const type = status & 0xf0;
 
   if (type === 0xb0) {
     ccValues[id] = value;

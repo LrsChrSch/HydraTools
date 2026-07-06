@@ -3,7 +3,7 @@ await loadScript(
 );
 await hydraToolsReady;
 
-await midi.start().show();
+await midi.start();
 
 a.show();
 a.setBins(4);

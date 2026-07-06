@@ -40,7 +40,7 @@ async function importAll() {
     "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/colors.js?dev=1",
   );
   await loadScript(
-    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/midi.js?dev=1",
+    "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/midi.js?dev=10",
   );
 }
 
