@@ -1,5 +1,5 @@
 await loadScript(
-  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/imports.js?dev=10",
+  "https://cdn.statically.io/gh/LrsChrSch/HydraTools@main/imports.js?dev=500",
 );
 await hydraToolsReady;
 
@@ -13,7 +13,21 @@ a.meyda.start();
 
 update = (dt) => {
   updateAA();
+  a.setSmooth(slider(9, 0, 0.99, "log")());
 };
+
+osc([5, 10, 20, 10], 0.1, 1)
+  .lookupX(palette.bnw)
+  .luma(() => lerp(a.fft[0], 0, 1, slider(1, 0, 1)(), slider(2, 0, 1)()))
+  .out(o1);
+
+src(o1)
+  .hue(knob(8, 1, 0, 1))
+  .saturate(knob(8, 2, 0, 1))
+  .brightness(knob(8, 3, -1, 1))
+  .fisheye(knob(7, 1, 0, 2), knob(7, 2, -2, 2))
+  .contrast(knob(7, 3, 0, 3, "exp"))
+  .out(o0);
 
 // bnw
 // red
