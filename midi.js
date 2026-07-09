@@ -3,8 +3,8 @@
 window.ccValues = window.ccValues || new Array(128).fill(0);
 window.noteStates = window.noteStates || new Array(128).fill(0);
 
-const ccValues = window.ccValues;
-const noteStates = window.noteStates;
+var ccValues = window.ccValues;
+var noteStates = window.noteStates;
 
 if (!window.__midiInitialized) {
   navigator.requestMIDIAccess().then(
@@ -40,9 +40,9 @@ var curves = {
 };
 
 function mapValue(raw, min = 0, max = 1, curve = "lin") {
-  const norm = normalize(raw, { min: 0, max: 127 });
+  const norm = clamp(raw / 127, 0, 1);
   const curved = (curves[curve] || curves.lin)(norm);
-  return lerp(curved, 0, 1, min, max);
+  return min + curved * (max - min);
 }
 
 var sliderIds = [19, 23, 27, 31, 49, 53, 57, 61, 62];

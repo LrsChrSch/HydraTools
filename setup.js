@@ -5,9 +5,10 @@ await hydraToolsReady;
 
 await midi.start();
 
-a.show();
+a.hide();
 a.setBins(4);
 a.setSmooth(0.8);
+a.setCutoff(0);
 
 a.meyda.start();
 
@@ -16,17 +17,21 @@ update = (dt) => {
   a.setSmooth(slider(9, 0, 0.99, "log")());
 };
 
-osc([5, 10, 20, 10], 0.1, 1)
-  .lookupX(palette.bnw)
-  .luma(() => lerp(a.fft[0], 0, 1, slider(1, 0, 1)(), slider(2, 0, 1)()))
+var s1 = slider(1, 0, 1);
+var s2 = slider(2, 0, 1);
+osc(10, 0.1, 0)
+  .lookupX(palette.radiantEarth)
+  .color(knob(1, 1, 0, 3), knob(1, 2, 0, 3), knob(1, 3, 0, 3))
+  .luma(() => lerp(a.fft[0], 0, 1, s1(), s2()))
   .out(o1);
 
 src(o1)
-  .hue(knob(8, 1, 0, 1))
+  .hue(knob(8, 1, -1, 1))
   .saturate(knob(8, 2, 0, 1))
   .brightness(knob(8, 3, -1, 1))
   .fisheye(knob(7, 1, 0, 2), knob(7, 2, -2, 2))
-  .contrast(knob(7, 3, 0, 3, "exp"))
+  .contrast(knob(7, 3, 0, 2))
+
   .out(o0);
 
 // bnw
@@ -36,7 +41,8 @@ src(o1)
 // redBlue
 // spezi
 // green
-// radiantEarth: climate
+// radiantEarth
+// climate
 // rust
 // violet
 // fire
